@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Indokraton</title>
+  <link rel="icon" type="image/png" href="./img/favicon.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- modal -->
+  <div class="ik-modal" role="dialog" aria-modal="true" aria-labelledby="ikTitle">
+    <div class="ik-card" id="ikCard">
+      <h2 id="ikTitle">Pro vstup prosím ověřte svůj věk.<br>Je vám 18 let nebo více?</h2>
+      <div class="ik-actions">
+        <button class="ik-btn ik-yes" onclick="location.href='https://www.indokratom.cz/'">ANO</button>
+        <button class="ik-btn ik-no"  onclick="showDenied()">NE</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function showDenied() {
+      const card = document.getElementById('ikCard');
+      card.innerHTML = `
+        <h2 style="margin-bottom:12px;">18+</h2>
+        <p style="margin:0; line-height:1.5; font-weight:500;">
+          Omlouváme se, tyto produkty jsou dostupné pouze osobám starším 18 let.
+        </p>
+      `;
+    }
+  </script>
+</body>
+</html>

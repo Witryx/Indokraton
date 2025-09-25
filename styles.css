@@ -1,0 +1,99 @@
+/* ===== Base ===== */
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  color: #111;
+  /* fullscreen background bez blur */
+  background: url("./img/default.png") center / cover no-repeat fixed;
+}
+
+/* mobilní pozadí */
+@media (max-width: 767px) {
+  body { background-image: url("./img/default-mobile.png"); }
+}
+
+/* ztmavení za modem (bez rozmazání) */
+.ik-dim {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.45);
+  z-index: 9998;
+}
+
+/* vystředění modalu */
+.ik-modal {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  z-index: 9999;
+}
+@supports (height: 100dvh) {
+  .ik-modal { min-height: 100dvh; }
+}
+
+/* moderní bílá karta */
+.ik-card {
+  width: clamp(300px, 92vw, 520px);
+  background: #fff;
+  border-radius: 16px;
+  border: 1px solid rgba(0,0,0,.12);
+  box-shadow: 0 24px 60px rgba(0,0,0,.25);
+  padding: 22px;
+  text-align: center;
+}
+
+.ik-card h2 {
+  margin: 0 0 16px;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 1.35;
+}
+
+/* tlačítka */
+.ik-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.ik-btn {
+  padding: 12px 20px;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1;
+  border-radius: 9999px;                 /* „pill“ vzhled */
+  cursor: pointer;
+  transition: background .15s ease, filter .15s ease, border-color .15s ease;
+  border: 1px solid rgba(0,0,0,.2);
+  background: #fff;
+  color: #111;
+}
+
+.ik-btn:hover { background: #f4f4f5; }
+
+.ik-yes {
+  background: #22c55e;                   /* zelené ANO */
+  color: #000;
+  border-color: #16a34a;
+  box-shadow: 0 10px 22px rgba(34,197,94,.35);
+}
+.ik-yes:hover { filter: brightness(.95); }
+
+.ik-no {
+  background: #fff;                       /* bílé NE s obrysem */
+  color: #111;
+  border-color: rgba(0,0,0,.25);
+}
+
+/* mobilní doladění */
+@media (max-width: 480px) {
+  .ik-card { padding: 18px; }
+  .ik-card h2 { font-size: 18px; }
+  .ik-actions { flex-direction: column; }
+  .ik-btn { width: 100%; padding: 11px 16px; font-size: 14px; }
+}
